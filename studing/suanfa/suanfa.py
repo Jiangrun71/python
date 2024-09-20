@@ -1,38 +1,31 @@
-class Solution:
-    def solve(self, s: str, t: str) -> str:
-        # 移除字符串中的空格
-        s = s.strip()
-        t = t.strip()
+# 定义一个Person类
+class Person:
+# 构造函数
+    def __init__(self, name, age, email):
+        self.name = name
+        self.age = age
+        self.email = email
 
-        # 检查是否至少有一个字符串是有效的整数
-        if s.isdigit() or t.isdigit():
-            try:
-                # 尝试将有效的字符串转换为整数
-                num1 = int(s) if s.isdigit() else 0
-                num2 = int(t) if t.isdigit() else 0
-                # 计算和
-                print(num1, num2)
-                sum = str(num1 + num2)
-                return sum
-            except ValueError:
-                # 如果转换失败，返回错误信息
-                return "Invalid input: One or both strings are not valid integers."
-        else:
-            # 如果两个字符串都不是有效的整数
-            return "Invalid input: Both strings are not valid integers."
+# 定义一个方法，用于打印个人信息
 
+    def introduce(self):
+        print(f"Hello, my name is {self.name}, I am {self.age} years old, and my email is {self.email}.")
 
-# 创建 Solution 类的实例
-sol = Solution()
+# 创建一个Person实例 person , 并传入三个参数 "Alice", 30, "alice@example.com"
+person = Person("Alice", 30, "alice@example.com")
 
-# 测试有效的输入
-result = sol.solve("1000003", " 00001 ")
-print(result)  # 应该输出 "1010004"
+# 调用方法
+person.introduce() 
+def process_person(person):
+    print(f"Processing person: {person.name}")
+    if person.age > 18:
+        print("Age is greater than 18.")
+    else:
+        print("Age is less than or equal to 18.")
+    print(f"Email: {person.email}")
 
-# 测试一个参数为空的情况
-result = sol.solve("1000003", " ")
-print(result)  # 应该输出 "1000003"
+# 创建Person实例
+person = Person("Bob", 25, "bob@example.com")
 
-# 测试两个参数都为空的情况
-result = sol.solve(" ", " ")
-print(result)  # 应该输出 "Invalid input: Both strings are not valid integers."
+# 将Person实例作为参数传递给函数
+process_person(person)
