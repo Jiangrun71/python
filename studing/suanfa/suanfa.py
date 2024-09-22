@@ -1,31 +1,32 @@
-# 定义一个Person类
-class Person:
-# 构造函数
-    def __init__(self, name, age, email):
-        self.name = name
-        self.age = age
-        self.email = email
+#split(",") 拆分输入字符串为⼀个列表 input().split(",")
+riddles = input().split(",")
+answers = input().split(",")
+# 初始化结果列表res = []
+res = list()
 
-# 定义一个方法，用于打印个人信息
+ # 构建谜底库answers_dic，其中
+ # key为每⼀个谜底answer去重后排序的结果a
+ # value为每⼀个谜底answer⾃⾝
+# 初始化answers_dic = {}
+answers_dic = dict()
 
-    def introduce(self):
-        print(f"Hello, my name is {self.name}, I am {self.age} years old, and my email is {self.email}.")
+# 遍历每⼀个谜底answer 
+for answer in answers:
+    a = "".join(sorted(set(answer))) #  
+    answers_dic[a] = answer
 
-# 创建一个Person实例 person , 并传入三个参数 "Alice", 30, "alice@example.com"
-person = Person("Alice", 30, "alice@example.com")
 
-# 调用方法
-person.introduce() 
-def process_person(person):
-    print(f"Processing person: {person.name}")
-    if person.age > 18:
-        print("Age is greater than 18.")
+# 遍历每⼀个谜⾯riddle
+for riddle in riddles:
+# 得到riddle去重后排序的结果r
+    r = "".join(sorted(set(riddle)))
+# 查看r是否位于谜底库中
+# 若在则将对应的谜底answers_dic[r]加⼊res中
+# 否则储存字符串"not found"
+    if r in answers_dic:
+        res.append(answers_dic[r])
     else:
-        print("Age is less than or equal to 18.")
-    print(f"Email: {person.email}")
+        res.append("not found")
 
-# 创建Person实例
-person = Person("Bob", 25, "bob@example.com")
 
-# 将Person实例作为参数传递给函数
-process_person(person)
+print(",".join(res))
