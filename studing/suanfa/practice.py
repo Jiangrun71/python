@@ -162,36 +162,43 @@ l
 输入：str1 = "LEET", str2 = "CODE"
 输出：""
 '''
-class Solution(object):
-    def gcdOfStrings(self, str1, str2):
-        # 辅助函数，判断 s 是否能由 t 重复多次组成
-        def canDivide(s, t):
-            return s == t * (len(s) // len(t))
+# class Solution(object):
+#     def gcdOfStrings(self, str1, str2):
+#         # 辅助函数，判断 s 是否能由 t 重复多次组成
+#         def canDivide(s, t):
+#             return s == t * (len(s) // len(t))
         
-        # 获取两个字符串长度的最大公约数
-        def gcd(a, b):
-            while b:
-                a, b = b, a % b
-            return a
+#         # 获取两个字符串长度的最大公约数
+#         def gcd(a, b):
+#             while b:
+#                 a, b = b, a % b
+#             return a
         
-        # 获取 str1 和 str2 长度的最大公约数
-        gcd_len = gcd(len(str1), len(str2))
+#         # 获取 str1 和 str2 长度的最大公约数
+#         gcd_len = gcd(len(str1), len(str2))
         
-        # 截取 str1 的前 gcd_len 个字符，作为可能的公共除数
-        candidate = str1[:gcd_len]
+#         # 截取 str1 的前 gcd_len 个字符，作为可能的公共除数
+#         candidate = str1[:gcd_len]
         
-        # 判断这个公共除数是否能整除 str1 和 str2
-        if canDivide(str1, candidate) and canDivide(str2, candidate):
-            return candidate
-        else:
-            return ""
+#         # 判断这个公共除数是否能整除 str1 和 str2
+#         if canDivide(str1, candidate) and canDivide(str2, candidate):
+#             return candidate
+#         else:
+#             return ""
 
-# 测试用例
-solution = Solution()
-print(solution.gcdOfStrings("ABCABC", "ABC"))  # 输出："ABC"
-print(solution.gcdOfStrings("ABABAB", "ABAB"))  # 输出："AB"
-print(solution.gcdOfStrings("ABCDABCD", "BCD"))    # 输出：""
+# # 测试用例
+# solution = Solution()
+# print(solution.gcdOfStrings("ABCABC", "ABC"))  # 输出："ABC"
+# print(solution.gcdOfStrings("ABABAB", "ABAB"))  # 输出："AB"
+# print(solution.gcdOfStrings("ABCDABCD", "BCD"))    # 输出：""
 
+list = []
+list.append(1)
+
+list.append(2)
+list.insert(1,3)
+print(list)
+print(list.pop())
 
 
 
