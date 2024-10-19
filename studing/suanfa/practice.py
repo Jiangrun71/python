@@ -192,13 +192,43 @@ l
 # print(solution.gcdOfStrings("ABABAB", "ABAB"))  # 输出："AB"
 # print(solution.gcdOfStrings("ABCDABCD", "BCD"))    # 输出：""
 
-list = []
-list.append(1)
+# list = []
+# list.append(1)
 
-list.append(2)
-list.insert(1,3)
-print(list)
-print(list.pop())
+# list.append(2)
+# list.insert(1,3)
+# print(list)
+# print(list.pop())
+"""
+
+"""
+import sys
+from collections import defaultdict
+lines = sys.stdin.readline().striplines()
+
+n = int(lines[0])
+daily_counts = list(map(int, lines[1].split()))
+
+check_data = [list(map(int, line.split())) for line in lines[2:32]]
+
+check_counts = defaultdict(int)
+
+for day in check_data:
+    for employ_id  in day :
+        if 0 <= employ_id < n :
+            check_counts[employ_id] += 1<
+        else:
+            daily_counts[employ_id] = 0
+if check_counts:
+    max_count = max(check_counts.values())
+    top_employ_ids = [employ_id for employ_id, count in check_counts.items() if count == max_count]
+    for employ in sorted(top_employ_ids):
+    print(employ)
+else:
+    print(-1)
+
+
+
 
 
 
