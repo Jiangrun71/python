@@ -1,2 +1,2 @@
 # python
-study python for details
+study python to be a master
